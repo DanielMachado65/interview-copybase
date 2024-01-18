@@ -18,7 +18,7 @@ import XLSX from "xlsx";
 import Papa from "papaparse";
 
 export default {
-  name: "HelloWorld",
+  name: "FileUpload",
 
   data: () => ({}),
   methods: {

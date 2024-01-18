@@ -40,7 +40,14 @@ export default {
       reader.onload = (e) => {
         const data = e.target.result;
         const workbook = XLSX.read(data, { type: "binary" });
-        console.log("workbook", workbook);
+
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+
+        // Converte a planilha para JSON
+        const json = XLSX.utils.sheet_to_json(worksheet);
+
+        console.log("Dados da Planilha XLSX:", json);
       };
       reader.readAsBinaryString(file);
     },
@@ -50,11 +57,11 @@ export default {
 
       Papa.parse(file, {
         complete: (results) => {
-          console.log("Resultados do Parse:", results.data);
+          console.log("Dados do CSV:", results.data);
         },
-        header: true, // Define se a primeira linha do CSV contém os cabeçalhos
-        skipEmptyLines: true, // Ignora linhas vazias
-        dynamicTyping: true, // Converte automaticamente strings numéricas e literais booleanos
+        header: true, // Usa a primeira linha como cabeçalhos
+        skipEmptyLines: true,
+        dynamicTyping: true,
       });
     },
   },

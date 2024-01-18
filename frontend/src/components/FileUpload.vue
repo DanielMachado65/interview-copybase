@@ -1,16 +1,13 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <h1 class="display-1">Envio de arquivo</h1>
-        <v-file-input
-          label="Selecione um arquivo"
-          accept=".xlsx,.csv"
-          @change="handleFileUpload"
-        ></v-file-input>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-row class="text-center">
+    <v-col cols="12">
+      <v-file-input
+        label="Selecione um arquivo"
+        accept=".xlsx,.csv"
+        @change="handleFileUpload"
+      ></v-file-input>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

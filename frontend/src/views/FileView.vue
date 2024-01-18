@@ -16,7 +16,9 @@
     <!-- gráficos com 3-->
     <v-container>
       <v-row>
-        <Graph :data="graphData" />
+        <v-col cols="12">
+          <Graph :data="graphData" />
+        </v-col>
       </v-row>
     </v-container>
   </v-container>

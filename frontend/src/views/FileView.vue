@@ -26,6 +26,7 @@
 
 <script>
 import { defineComponent } from "vue";
+import axios from "axios";
 
 // Components
 import FileUpload from "../components/FileUpload.vue";
@@ -36,6 +37,26 @@ export default defineComponent({
   components: {
     FileUpload,
     Graph,
+  },
+  data() {
+    return {
+      graphData: null,
+    };
+  },
+  methods: {
+    async fetchGraphData() {
+      try {
+        const response = await axios.get(
+          process.env.VUE_APP_BASE_API + "/metrics/65a9c9807fa02de31fb5171a"
+        ); // Substitua com a URL do seu backend
+        this.graphData = response.data; // Atualizar os dados do gráfico
+      } catch (error) {
+        console.error("Erro ao buscar dados do gráfico:", error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchGraphData(); // Chamar o método na montagem do componente
   },
 });
 </script>

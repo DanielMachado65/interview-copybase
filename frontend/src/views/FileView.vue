@@ -11,13 +11,13 @@
     </v-row>
 
     <!-- enviar o arquivo -->
-    <FileUpload />
+    <FileUpload @file-uploaded="handleFileUpload" />
 
     <!-- gráficos com 3-->
-    <v-container>
+    <v-container v-if="fileId">
       <v-row>
         <v-col cols="12">
-          <Graph :data="graphData" />
+          <Graph :data="graphData" :fileId="fileId" />
         </v-col>
       </v-row>
     </v-container>
@@ -26,7 +26,6 @@
 
 <script>
 import { defineComponent } from "vue";
-import axios from "axios";
 
 // Components
 import FileUpload from "../components/FileUpload.vue";
@@ -38,25 +37,19 @@ export default defineComponent({
     FileUpload,
     Graph,
   },
-  data() {
-    return {
-      graphData: null,
-    };
-  },
+  data: () => ({
+    graphData: null,
+    fileId: null,
+  }),
   methods: {
-    async fetchGraphData() {
-      try {
-        const response = await axios.get(
-          process.env.VUE_APP_BASE_API + "/metrics/65a9c9807fa02de31fb5171a"
-        ); // Substitua com a URL do seu backend
-        this.graphData = response.data; // Atualizar os dados do gráfico
-      } catch (error) {
-        console.error("Erro ao buscar dados do gráfico:", error);
-      }
+    handleFileUpload(fileId) {
+      this.checkDataAvailability(fileId);
     },
-  },
-  mounted() {
-    this.fetchGraphData(); // Chamar o método na montagem do componente
+
+    async checkDataAvailability(fileId) {
+      console.log("checkDataAvailability", fileId);
+      this.fileId = fileId;
+    },
   },
 });
 </script>

@@ -19,37 +19,41 @@ import axios from "axios";
 
 export default defineComponent({
   name: "GraphComponent",
+  props: {
+    fileId: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     BarChart,
   },
-  data() {
-    return {
-      mrrChartData: {
-        labels: [],
-        datasets: [
-          {
-            label: "MRR",
-            backgroundColor: "#f87979",
-            data: [],
-          },
-        ],
-      },
-      churnChartData: {
-        labels: [],
-        datasets: [
-          {
-            label: "Churn Rate",
-            backgroundColor: "#79a6f8",
-            data: [],
-          },
-        ],
-      },
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false,
-      },
-    };
-  },
+  data: () => ({
+    mrrChartData: {
+      labels: [],
+      datasets: [
+        {
+          label: "MRR",
+          backgroundColor: "#f87979",
+          data: [],
+        },
+      ],
+    },
+    churnChartData: {
+      labels: [],
+      datasets: [
+        {
+          label: "Churn Rate",
+          backgroundColor: "#79a6f8",
+          data: [],
+        },
+      ],
+    },
+    chartOptions: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  }),
   methods: {
     processApiResponse(data) {
       const labels = [];
@@ -77,7 +81,7 @@ export default defineComponent({
     async fetchData() {
       try {
         const response = await axios.get(
-          process.env.VUE_APP_BASE_API + "/metrics/65a9c9807fa02de31fb5171a"
+          process.env.VUE_APP_BASE_API + `/metrics/${this.fileId}`
         );
         this.processApiResponse(response.data);
       } catch (error) {
@@ -85,7 +89,7 @@ export default defineComponent({
       }
     },
   },
-  mounted() {
+  created() {
     this.fetchData();
   },
 });

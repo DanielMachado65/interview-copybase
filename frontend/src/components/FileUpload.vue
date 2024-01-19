@@ -35,7 +35,7 @@ export default {
           },
         })
         .then((response) => {
-          console.log("Arquivos enviados com sucesso:", response);
+          this.$emit("file-uploaded", response.data.id);
         })
         .catch((error) => {
           console.error("Erro ao enviar arquivos:", error);

@@ -29,7 +29,7 @@ export default {
       }
 
       axios
-        .post(process.env.VUE_APP_BASE_API + "/file-upload", formData, {
+        .post(process.env.VUE_APP_BASE_API + "/file/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="p-16">
     <!-- titulo para verificação de churn e mrr -->
     <v-row>
       <v-col cols="12">
@@ -25,7 +25,7 @@
     <v-container v-else-if="!isLoading && fileId">
       <v-row>
         <v-col cols="12">
-          <Graph :fileId="fileId" />
+          <DasboardGraph :fileId="fileId" />
         </v-col>
       </v-row>
     </v-container>
@@ -37,14 +37,14 @@ import { defineComponent } from "vue";
 
 // Components
 import FileUpload from "../components/FileUpload.vue";
-import Graph from "../components/Graph.vue";
+import DasboardGraph from "../components/DasboardGraph.vue";
 import axios from "axios";
 
 export default defineComponent({
   name: "FileView",
   components: {
     FileUpload,
-    Graph,
+    DasboardGraph,
   },
   data: () => ({
     fileId: null,

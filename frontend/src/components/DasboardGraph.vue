@@ -18,7 +18,7 @@ import { BarChart } from "vue-chart-3";
 import axios from "axios";
 
 export default defineComponent({
-  name: "GraphComponent",
+  name: "DasboardGraph",
   props: {
     fileId: {
       type: String,

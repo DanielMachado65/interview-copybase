@@ -3,10 +3,14 @@
     <!-- titulo para verificação de churn e mrr -->
     <v-row>
       <v-col cols="12">
-        <h1 class="text-h4">Envio de arquivo</h1>
+        <h1 class="text-h4">Analise de Dados</h1>
       </v-col>
       <v-col>
-        <h1 class="text-subtitle-1">Verificação de churn e mrr</h1>
+        <h1 class="text-subtitle-1">
+          Ao enviar o arquivo, voce poderá verificar gráficos de receita
+          recorrente mensal <strong>(MRR)</strong> e taxa de cancelamento
+          <strong>(Churn Rate)</strong>
+        </h1>
       </v-col>
     </v-row>
 

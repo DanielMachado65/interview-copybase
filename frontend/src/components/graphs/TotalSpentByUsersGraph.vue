@@ -15,6 +15,7 @@
 <script>
 import { defineComponent } from "vue";
 import { LineChart } from "vue-chart-3";
+import { useToast } from "vue-toastification";
 import axios from "axios";
 
 export default defineComponent({
@@ -27,6 +28,10 @@ export default defineComponent({
   },
   components: {
     LineChart,
+  },
+  setup() {
+    const toast = useToast();
+    return { toast };
   },
   data: () => ({
     chartOptions: {
@@ -58,6 +63,9 @@ export default defineComponent({
         .then((response) => {
           this.processUsersValueData(response.data);
           this.isLoading = false;
+        })
+        .catch((error) => {
+          this.toast.error(error.message);
         });
     },
     processUsersValueData(usersValueData) {

@@ -6,13 +6,13 @@
     </v-col>
 
     <v-col cols="12" md="6">
-      <h2>Churn Rate</h2>
-      <BarChart :chart-data="churnChartData" :options="chartOptions" />
+      <h2>Status Distribution</h2>
+      <DoughnutChart :chart-data="statusChartData" :options="chartOptions" />
     </v-col>
 
     <v-col cols="12" md="6">
-      <h2>Status Distribution</h2>
-      <DoughnutChart :chart-data="statusChartData" :options="chartOptions" />
+      <h2>Churn Rate</h2>
+      <BarChart :chart-data="churnChartData" :options="chartOptions" />
     </v-col>
 
     <v-col cols="12" md="6">

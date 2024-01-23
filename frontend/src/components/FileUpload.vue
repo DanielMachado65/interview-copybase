@@ -2,10 +2,9 @@
   <v-row class="text-center">
     <v-col cols="12">
       <v-file-input
-        label="Selecione arquivos"
+        label="Selecione arquivo"
         accept=".xlsx,.csv"
         @change="handleFileUpload"
-        multiple
       ></v-file-input>
     </v-col>
   </v-row>

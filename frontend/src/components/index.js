@@ -1,7 +1,7 @@
-import TotalSpentByUsersGraph from "./TotalSpentByUsersGraph";
-import StatusDistributionGraph from "./StatusDistributionGraph";
-import MRRGraph from "./MRRGraph";
-import ChurnGraph from "./ChurnGraph";
+import TotalSpentByUsersGraph from "./graphs/TotalSpentByUsersGraph";
+import StatusDistributionGraph from "./graphs/StatusDistributionGraph";
+import MRRGraph from "./graphs/MRRGraph";
+import ChurnGraph from "./graphs/ChurnGraph";
 
 export {
   TotalSpentByUsersGraph,

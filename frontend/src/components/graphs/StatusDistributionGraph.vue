@@ -32,6 +32,16 @@ export default defineComponent({
     chartOptions: {
       responsive: true,
       maintainAspectRatio: false,
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            const dataset = data.datasets[tooltipItem.datasetIndex];
+            const total = dataset.data[tooltipItem.index];
+            const label = data.labels[tooltipItem.index];
+            return `${label}: ${total}`;
+          },
+        },
+      },
     },
     isLoading: true,
     statusChartData: {
@@ -60,6 +70,7 @@ export default defineComponent({
         });
     },
     processStatusData(statusData) {
+      console.log(statusData);
       const labels = statusData.map((item) => item._id);
       const data = statusData.map((item) => item.total);
 

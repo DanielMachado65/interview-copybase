@@ -78,7 +78,6 @@ export default defineComponent({
         });
     },
     processStatusData(statusData) {
-      console.log(statusData);
       const labels = statusData.map((item) => item._id);
       const data = statusData.map((item) => item.total);
 

@@ -1,7 +1,14 @@
 <template>
   <v-col cols="12" md="6">
     <h2>Total Spent by Users</h2>
-    <LineChart :chart-data="usersValueChartData" :options="chartOptions" />
+    <v-row justify="center" v-if="isLoading" style="padding: 50px">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </v-row>
+    <LineChart
+      v-else
+      :chart-data="usersValueChartData"
+      :options="chartOptions"
+    />
   </v-col>
 </template>
 
@@ -22,6 +29,7 @@ export default defineComponent({
     LineChart,
   },
   data: () => ({
+    isLoading: true,
     usersValueChartData: {
       labels: [],
       datasets: [
@@ -45,6 +53,7 @@ export default defineComponent({
         )
         .then((response) => {
           this.processUsersValueData(response.data);
+          this.isLoading = false;
         });
     },
     processUsersValueData(usersValueData) {

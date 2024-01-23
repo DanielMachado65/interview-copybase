@@ -29,6 +29,10 @@ export default defineComponent({
     LineChart,
   },
   data: () => ({
+    chartOptions: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
     isLoading: true,
     usersValueChartData: {
       labels: [],

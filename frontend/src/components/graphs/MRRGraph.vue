@@ -20,15 +20,15 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    chartOptions: {
-      type: Object,
-      required: true,
-    },
   },
   components: {
     BarChart,
   },
   data: () => ({
+    chartOptions: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
     isLoading: true,
     mrrChartData: {
       labels: [],

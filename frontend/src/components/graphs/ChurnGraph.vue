@@ -25,6 +25,10 @@ export default defineComponent({
     BarChart,
   },
   data: () => ({
+    chartOptions: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
     isLoading: true,
     churnChartData: {
       labels: [],

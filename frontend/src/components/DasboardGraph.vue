@@ -1,9 +1,9 @@
 <template>
   <v-row>
-    <MRRGraph :fileId="fileId" :chartOptions="chartOptions" />
-    <StatusDistributionGraph :fileId="fileId" :chartOptions="chartOptions" />
-    <ChurnGraph :fileId="fileId" :chartOptions="chartOptions" />
-    <TotalSpentByUsersGraph :fileId="fileId" :chartOptions="chartOptions" />
+    <MRRGraph :fileId="fileId" />
+    <StatusDistributionGraph :fileId="fileId" />
+    <ChurnGraph :fileId="fileId" />
+    <TotalSpentByUsersGraph :fileId="fileId" />
   </v-row>
 </template>
 
@@ -30,11 +30,5 @@ export default defineComponent({
       required: true,
     },
   },
-  data: () => ({
-    chartOptions: {
-      responsive: true,
-      maintainAspectRatio: false,
-    },
-  }),
 });
 </script>

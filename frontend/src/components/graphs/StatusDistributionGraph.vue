@@ -29,6 +29,10 @@ export default defineComponent({
     DoughnutChart,
   },
   data: () => ({
+    chartOptions: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
     isLoading: true,
     statusChartData: {
       labels: [],

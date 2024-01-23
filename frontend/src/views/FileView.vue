@@ -9,7 +9,7 @@
         <h1 class="text-subtitle-1">
           Ao enviar o arquivo, voce poderá verificar gráficos de receita
           recorrente mensal <strong>(MRR)</strong> e taxa de cancelamento
-          <strong>(Churn Rate)</strong>
+          <strong>(Churn Rate)</strong> entre outros gráficos.
         </h1>
       </v-col>
     </v-row>

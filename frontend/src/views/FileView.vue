@@ -39,12 +39,17 @@ import { defineComponent } from "vue";
 import FileUpload from "../components/FileUpload.vue";
 import DasboardGraph from "../components/DasboardGraph.vue";
 import axios from "axios";
+import { useToast } from "vue-toastification";
 
 export default defineComponent({
   name: "FileView",
   components: {
     FileUpload,
     DasboardGraph,
+  },
+  setup() {
+    const toast = useToast();
+    return { toast };
   },
   data: () => ({
     fileId: null,
@@ -77,6 +82,7 @@ export default defineComponent({
         }
       } catch (error) {
         console.error("Erro ao verificar o arquivo:", error);
+        this.toast.error("Erro ao verificar o arquivo");
         clearInterval(this.pollingInterval);
       }
     },

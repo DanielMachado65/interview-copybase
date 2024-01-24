@@ -11,7 +11,7 @@
     "@mdi/font": "5.9.55",
     "axios": "^1.6.5",
     "babel-plugin-transform-define": "^2.1.4",
-    "chart.js": "^4.4.1",
+    "chart.js": "^3.1.0",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
     "vue": "^3.2.13",

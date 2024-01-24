@@ -5,8 +5,10 @@ import vuetify from "./plugins/vuetify";
 import "./plugins/charts";
 import { loadFonts } from "./plugins/webfontloader";
 import Toast from "vue-toastification";
+
 // Import the CSS or use your own!
 import "vue-toastification/dist/index.css";
+import "vuetify/dist/vuetify.min.css";
 
 loadFonts();
 
